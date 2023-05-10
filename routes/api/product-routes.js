@@ -1,18 +1,35 @@
 const router = require('express').Router();
 const { Product, Category, Tag, ProductTag } = require('../../models');
 
-// The `/api/products` endpoint
+// The `/api/products` e.n.d.p.o.i.n.t.
 
 // get all products
-router.get('/', (req, res) => {
-  // find all products
-  // be sure to include its associated Category and Tag data
+router.get('/', async (req, res) => {
+  try {
+    const productData = await Product.findAll()({
+      include: [{ model: Category, Tag }],
+    });
+    res.status(200).json(productData)
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 // get one product
-router.get('/:id', (req, res) => {
-  // find a single product by its `id`
-  // be sure to include its associated Category and Tag data
+router.get('/:id', async (req, res) => {
+  // find a single product by its `id`, and the res includes its 
+  try {
+    const productData = await Product.findByPk(req.params.id, {
+      include: [{ model: Category, Tag }],
+    });
+    if (!productData) {
+      res.status(404).json({ message: "This product information cannot be found or does not exist." });
+      return;
+    }
+    else { res.status(200).json(productData) }
+  } catch (err) {
+    res.status(500).json(err)
+  }
 });
 
 // create new product
@@ -94,9 +111,5 @@ router.delete('/:id', (req, res) => {
 });
 
 module.exports = router;
-
-// Fill out the unfinished routes in `product-routes.js`, `tag-routes.js`, and `category-routes.js` to perform create, read, update, and delete operations using your Sequelize models.
-
-// Note that the functionality for creating the many-to-many relationship for products has already been completed for you.
 
 // > **Hint**: Be sure to look at the mini-project code for syntax help and use your model's column definitions to figure out what `req.body` will be for POST and PUT routes!
