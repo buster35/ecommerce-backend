@@ -19,8 +19,6 @@ SO THAT my company can compete with other e-commerce companies
 ```md
 GIVEN a functional Express.js API
 
-WHEN I open API GET routes in Insomnia for categories, products, or tags
-THEN the data for each of these routes is displayed in a formatted JSON
 WHEN I test API POST, PUT, and DELETE routes in Insomnia
 THEN I am able to successfully create, update, and delete data in my database
 ```
@@ -50,8 +48,6 @@ Use the `schema.sql` file in the `db` folder to create your database with MySQL 
 ### Seed the Database
 
 ### Sync Sequelize to the Database on Server Start
-
-Create the code needed in `server.js` to sync the Sequelize models to the MySQL database on server start.
 
 ## Grading Requirements
 
