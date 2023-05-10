@@ -19,8 +19,6 @@ SO THAT my company can compete with other e-commerce companies
 ```md
 GIVEN a functional Express.js API
 
-WHEN I enter the command to invoke the application
-THEN my server is started and the Sequelize models are synced to the MySQL database
 WHEN I open API GET routes in Insomnia for categories, products, or tags
 THEN the data for each of these routes is displayed in a formatted JSON
 WHEN I test API POST, PUT, and DELETE routes in Insomnia
