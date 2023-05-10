@@ -19,8 +19,6 @@ SO THAT my company can compete with other e-commerce companies
 ```md
 GIVEN a functional Express.js API
 
-WHEN I enter schema and seed commands
-THEN a development database is created and is seeded with test data
 WHEN I enter the command to invoke the application
 THEN my server is started and the Sequelize models are synced to the MySQL database
 WHEN I open API GET routes in Insomnia for categories, products, or tags
@@ -52,8 +50,6 @@ Use the `schema.sql` file in the `db` folder to create your database with MySQL 
 ### Fill Out the API Routes to Perform RESTful CRUD Operations
 
 ### Seed the Database
-
-After creating the models and routes, run `npm run seed` to seed data to your database so that you can test your routes.
 
 ### Sync Sequelize to the Database on Server Start
 
