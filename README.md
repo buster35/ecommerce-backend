@@ -1,5 +1,5 @@
 # Ecommerce Backend Database
-![GitHub](https://img.shields.io/github/LICENSE/buster35/ecommerce-backend)
+![GitHub](https://img.shields.io/github/license/buster35/ecommerce-backend)
 ## Description
 My motivation for this project circled around understanding how routing works and how we have the ability to use ORM to create Models, which are essentially templates for database tables.
 I built this project to learn more about how ORM brings all of the aforementioned processes together.
