@@ -14,6 +14,9 @@ I certainly learned more about Object Relational Mapping and database interactio
 ### [Questions](#questions)
 ### [License](#license)
 ## Installation
+
+Setup and Insomnia CRUD Operations Walkthrough Video: https://drive.google.com/file/d/1f0TndOfppk5gvviNAEvKB5VcUDMW_7jv/view
+
 The steps for proper installation involve opening the command line and running the following commands after cloning the code repository to the local machine: npm i -> mysql -u root -p/enter password -> SOURCE db/schema.sql -> quit -> npm run seed -> npm run watch. At this point all required dependencies should be downloaded, the database should be initiated and seeded in MySQL (the user may double-check for an "ecommerce_db" in the list of schemas at this point in MySQL workbench), and the server port will be synced to the models in the codebase and listening on the local port 3001.
 ## Usage
 Once the user has successfully opened the local port and the app is "listening" Insomnia may be opened and the user may test the RESTful API route functionality to perform CRUD operations by manipulating the seeded data, adding more data or deleting data.
