@@ -48,7 +48,7 @@ router.get('/:id', async (req, res) => {
   // update a tag's name by its `id` value
   router.put('/:id', async (req, res) => {
     try {
-      const tagData = await Tag.update(req.body.tag_name, { //TEST
+      const tagData = await Tag.update(req.body, {
         where: {
           id: req.params.id
         }
@@ -57,7 +57,7 @@ router.get('/:id', async (req, res) => {
         res.status(404).json({ message: "No such tag exists." })
         return;
       }
-      res.status(200).json({ message: `Successful update for the ${req.body} tag!` }) //successful tag update
+      res.status(200).json({ message: `Successful tag update!` }) //successful tag update
     } catch (err) {
       res.status(500).json(err);
     }
@@ -66,16 +66,16 @@ router.get('/:id', async (req, res) => {
   router.delete('/:id', async (req, res) => {
     // delete a tag by its `id` value
     try {
-      const tagData = await Tag.destroy(req.body, {
+      const tagData = await Tag.destroy({
         where: {
           id: req.params.id
         }
       })
-      if (!tagData[0]) {
+      if (!tagData) {
         res.status(404).json({ message: "No such tag exists." })
         return;
       }
-      res.status(200).json({ message: `Successful delete action on the ${req.body} tag.`})
+      res.status(200).json({ message: `Successful tag delete action.`})
     } catch (err) {
       res.status(500).json(err);
     }

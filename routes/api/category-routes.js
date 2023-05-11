@@ -50,11 +50,11 @@ router.put('/:id', async (req, res) => {
         id: req.params.id
       }
     });
-    if (!categoryData[0]) {
+    if (categoryData) {
       res.status(404).json({ message: "No such category exists." })
       return;
     }
-    res.status(200).json({ message: `Successful update for the ${req.body} category!` }) //successful category update
+    res.status(200).json({ message: `Successful category update!` }) //successful category update
   } catch (err) {
     res.status(500).json(err);
   }
@@ -63,16 +63,16 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   // delete a category by its `id` value
   try {
-    const categoryData = await Category.destroy(req.body, {
+    const categoryData = await Category.destroy({
       where: {
         id: req.params.id
       }
     })
-    if (!categoryData[0]) {
+    if (!categoryData) {
       res.status(404).json({ message: "No such category exists." })
       return;
     }
-    res.status(200).json({ message: `Successful delete action on the ${req.body} category.`})
+    res.status(200).json({ message: `Successful category delete action.`})
   } catch (err) {
     res.status(500).json(err);
   }
